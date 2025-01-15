@@ -3,6 +3,12 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="refresh", content="45")
+        link(rel="stylesheet", href="/style/style.css")
         title= title
     body 
+        include _nav
+        
         h1= message
+
+        script(type="module", src="/dist/index.js") 

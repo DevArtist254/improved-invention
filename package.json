@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "bulid:style": "sass -w public/style/sass/main.scss public/style/style.css",
+    "bulid:js": "webpack"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +19,9 @@
     "pug": "^3.0.3"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "sass": "^1.83.4",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
   }
 }
