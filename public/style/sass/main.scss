@@ -4,3 +4,33 @@
     margin: 0;
     padding: 0;
 }
+
+nav {
+    background-color: #000;
+    color: #fff;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+        
+        &__logo {
+
+        }
+
+        &__search {
+
+        }
+
+        &__list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+        }
+}
