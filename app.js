@@ -5,8 +5,8 @@ const app = express();
 
 app.use(cors());
 
-app.set('view engine', 'pug');
-app.use(express.static('public'));
+app.set("view engine", "pug");
+app.use(express.static("public"));
 
 // app.use((req, res, next) => {
 //   req.requestTime = new Date().toISOString();
@@ -17,12 +17,19 @@ app.use(express.static('public'));
 //   next();
 // });
 
+app.get("/", (req, res) => {
+  res.render("index", {
+    title: "Hey",
+    message: "Hello world",
+  });
+});
 
-app.get('/', (req, res) => {
-    res.render('index', {
-        title: "Hey",
-        message: "Hello world"
-    })
-})
+app.get("/results", (req, res) => {
+  console.log(req.query);
+
+  res.render("results", {
+    message: req.query.search,
+  });
+});
 
 module.exports = app;
