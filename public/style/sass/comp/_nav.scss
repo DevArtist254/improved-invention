@@ -2,23 +2,69 @@
 
 .nav {
     @include flexRowCr();
+    padding: 2em 8em;
 
         &__logo {
             &--sec {
                 display: none;
+                width: 11.2rem;
             }
 
             &--pri {
                 display: block;
+                width: 11.2rem;
             }
         }
 
         &__search {
+            min-width: 32rem;
+            height: 4.1rem;
+            border-radius: 0.5rem;
 
+            &--select  {
+                margin-left: 0.5rem;
+                margin-top: 0.4rem;
+
+                border: none;
+                width: 0;
+                height: 3.3rem;
+                text-align: center;
+                border-radius: 0.5rem;
+
+                transition: width 800ms ease-in-out;
+            }
+
+            &--input {
+                border: none;
+
+                margin-left: 0.5rem;
+                margin-top: 1rem;
+
+                &:focus {
+                    outline: none;
+
+                }
+            }
         }
 
         &__list {
             @include flexRowCr();
             list-style: none;
+        }
+
+        &__link {
+            @include flexRowCr(baseline);
+            margin-right: 4rem;
+        }
+
+        &__cta {
+            text-align: center;
+            display: inline-block;
+            width: 12.8rem;
+            height: 4.1rem;
+
+            &--link {
+                text-decoration: none;
+            }
         }
 }

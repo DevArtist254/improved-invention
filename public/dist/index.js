@@ -15,7 +15,7 @@
   \****************************/
 /***/ (() => {
 
-eval("console.log(\"Hello world\");\n\n\n//# sourceURL=webpack://mji/./public/js/index.js?");
+eval("const inputSearch = document.querySelector(\"#searchInput\");\nconst searchArea = document.querySelector(\".nav__search\");\nconst select = document.querySelector(\".nav__search--select\");\n\nsearchArea.addEventListener(\"click\", () => {\n  select.style.width = \"12.5rem\";\n  inputSearch.style.marginTop = \"initial\";\n});\n\ninputSearch.addEventListener(\"focusout\", () => {\n  select.style.width = \"0\";\n  inputSearch.style.marginTop = \"1rem\";\n});\n\nconsole.log(\"Hello world\");\n\n\n\n//# sourceURL=webpack://mji/./public/js/index.js?");
 
 /***/ })
 
