@@ -1,0 +1,13 @@
+@use "./../abs/colors" as *;
+
+@each $name, $shades in $clr {
+    @each $value, $shade in $shades {
+        .bdg-#{$name}--#{$value} {
+            background-color: $shade;
+        }
+
+        .clr-#{$name}--#{$value} {
+            color: $shade;
+        }
+    }
+}

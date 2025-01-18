@@ -1,0 +1,24 @@
+@use "./../abs/mixin" as *;
+
+.nav {
+    @include flexRowCr();
+
+        &__logo {
+            &--sec {
+                display: none;
+            }
+
+            &--pri {
+                display: block;
+            }
+        }
+
+        &__search {
+
+        }
+
+        &__list {
+            @include flexRowCr();
+            list-style: none;
+        }
+}
