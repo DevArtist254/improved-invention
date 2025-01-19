@@ -1,44 +1,31 @@
-const inputSearch = document.querySelector("#searchInput");
-const searchArea = document.querySelector(".nav__search");
-const select = document.querySelector(".nav__search--select");
+import store from "./store/store";
+import search from "./ui/search";
 
-const search = document.querySelector("#search");
 
-searchArea.addEventListener("click", () => {
-  select.style.width = "12.5rem";
-  inputSearch.style.marginTop = "initial";
-});
+const init = function () {
+  search.handleAnimation();
+  search.handleSearch();
+}
 
-inputSearch.addEventListener("focusout", () => {
-  select.style.width = "0";
-  inputSearch.style.marginTop = "1rem";
-});
+init();
 
-search.addEventListener("submit", async (e) => {
-  e.preventDefault();
+// const unsubscribe = store.subscribe(() => {
+//   console.log("Current state:", store.getState());
+// });
 
-  const formData = new FormData(search);
+// unsubscribe();
+// // Dispatch some actions
 
-  if(formData.get("category") === "default") {
-    formData.delete("category");
-  }
+// store.dispatch({ type: "INCREMENT" });
+// store.dispatch({ type: "INCREMENT" });
+// store.dispatch({ type: "INCREMENT" });
+// store.dispatch({ type: "DECREMENT" });
 
-  inputSearch.value = "";
-  select.value = "default";
+// store.dispatch({type: 'SET_NAME', payload: 'Alice'});
+// store.dispatch({ type: 'SET_AGE', payload: 25});
 
-  try {
-    const res = await fetch(
-      `/results?${new URLSearchParams(formData).toString()}`
-    );
+// unsubscribe();
 
-   window.location.replace(
-     `/results?${new URLSearchParams(formData).toString()}`
-   );
-  } catch (error) {
-    console.log(error);
-  }
-})
+// store.dispatch({ type: "INCREMENT" });
 
 console.log("Hello world");
-
-

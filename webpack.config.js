@@ -7,5 +7,5 @@ module.exports = {
     filename: "index.js",
     path: path.resolve(__dirname, "public/dist"),
   },
-  watch: true
+  watch: true,
 };
