@@ -9,6 +9,58 @@ html {
   font-size: 62.5%;
 }
 
+.ff-pri {
+  font-family: "Newsreader", serif;
+}
+
+.ff-sec {
+  font-family: "Open Sans", serif;
+}
+
+.fw-pri--800 {
+  font-weight: 700;
+}
+
+.fw-pri--600 {
+  font-weight: 600;
+}
+
+.fw-pri--400 {
+  font-weight: 400;
+}
+
+.fw-pri--200 {
+  font-weight: 300;
+}
+
+.fs-pri--1400 {
+  font-size: 4rem;
+}
+
+.fs-pri--1200 {
+  font-size: 3.6rem;
+}
+
+.fs-pri--1000 {
+  font-size: 3.2rem;
+}
+
+.fs-pri--800 {
+  font-size: 2.4rem;
+}
+
+.fs-pri--600 {
+  font-size: 2rem;
+}
+
+.fs-pri--400 {
+  font-size: 1.8rem;
+}
+
+.fs-pri--200 {
+  font-size: 1.6rem;
+}
+
 .bdg-pri--1000 {
   background-color: #1B2632;
 }
