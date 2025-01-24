@@ -182,4 +182,39 @@ html {
   text-decoration: none;
 }
 
+main {
+  position: relative;
+  max-width: 158.6rem;
+  margin: 10rem auto;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.images {
+  width: 100%;
+}
+.images__pri {
+  height: 65.6rem;
+  width: 125.5rem;
+}
+.images__sec {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.images__sec--1, .images__sec--2, .images__sec--3, .images__sec--4 {
+  height: 20.4rem;
+  width: 33.1rem;
+}
+
+.images__sec.sticky {
+  position: fixed;
+  top: 0;
+  right: 366px;
+}
+
 /*# sourceMappingURL=style.css.map */

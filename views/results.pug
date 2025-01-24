@@ -3,13 +3,109 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        meta(http-equiv="refresh", content="45")
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet")
         link(rel="stylesheet", href="/style/style.css")
         title= title
     body 
         include _nav
         
-        h1= message
+        main#main
+            section#images.images
+                .images__pri.images__pri--1
+                    img(src="./images/aaron-huber/c2.jpg", alt="car1")
+                .images__sec
+                    .images__sec--mask
+                        span 
+                            h2.ff-sec.fw-pri--200.fs-pri--1200.clr-pri--1000 3,000,000 ksh 
+                            p.ff-sec.fw-pri--800.fs-pri--600.clr-pri--1000 Request a call
+                        .images__sec--2
+                            img(src="./images/aaron-huber/c3.jpg", alt="car3")
+                    .images__sec--1
+                        img(src="./images/aaron-huber/c1.jpg", alt="car2")
+                    .images__sec--3
+                        img(src="./images/aaron-huber/c4.jpg", alt="car4")
+                    .images__sec--mask
+                        span 
+                            h1.ff-sec.fw-pri--1000.fs-pri--1400.clr-pri--1000 7+ Images 
+                        .images__sec--4
+                            img(src="./images/aaron-huber/c3.jpg", alt="car3")
 
-        script(src="https://cdnjs.cloudflare.com/ajax/libs/redux/5.0.1/redux.legacy-esm.js" integrity="sha512-VCbwlmqXz5fKpvO/4l55lYqYZ4K3fi2xUnXp5pzH4YdFEWOrHwO00sXUFg20gtadJf1lzz/ZZjSNjCEOZWDJjg==" crossorigin="anonymous" referrerpolicy="no-referrer")
+            #ad
+                .main
+                    h1.ff-pri.fs-pri--1400.fw-pri--400.clr-pri--1000 BMW 330i 2011 Green
+                    p.ff-sec.fw-pri--800.fs-pri--600.clr-pri--1000 Muthaka Motors
+
+                    p.ff-sec.fw-pri--400.fs-pri--600.clr-sec--400 Show contact
+                    p.ff-sec.fw-pri--400.fs-pri--600.clr-sec--200 Start chat
+
+                .details
+                    .details__bookmark
+                        <svg xmlns="http://www.w3.org/2000/svg" width="6.4rem" height="14.7rem" viewBox="0 0 24 24"><path fill="#1B2632" d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3l7 3V5c0-1.1-.9-2-2-2"/></svg>
+        
+                    .details__desc
+                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 Negotiable
+                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 Nairobi, Mombasa road
+                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 1,458 bookmarks
+                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 458 views
+
+                .specificationsPri
+                    p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 Local Used
+                    p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 Petrol
+                    p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 CVT
+
+                .specificationsSec
+                    .specificationsSec__des
+                        h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--400 Nissan
+                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 make
+                    .specificationsSec__des            
+                        h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--400 2006
+                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 drivetrain 
+                    .specificationsSec__des
+                     h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--400 Sylphy
+                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 trim 
+                    .specificationsSec__des
+                        h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--400 Front wheel 
+                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 drivetrain 
+                    .specificationsSec__des
+                        h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--400 1800
+                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 Engine size 
+                    .specificationsSec__des
+                        h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--400 Bluebird 
+                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 model
+
+                .description
+                    p.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--400 Looking for a reliable and stylish ride? Check out this 2002 Suzuki Jimny, a compact yet rugged SUV that's perfect for both city drives and off-road adventures. Powered by a 1328cc petrol engine paired with a manual transmission, this vehicle delivers excellent performance and control. Known for its durability and efficiency, the Jimny is a favorite among drivers who value practicality and style. This particular model is super clean, well-maintained, and ready to hit the road. Don’t miss the chance to own this versatile and trusted companion!
+
+                .user
+                    h1.ff-pri.fw-pri--1000.fs-pri--1400.clr-pri--1000 Muthaka Motors
+                    p.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--400 trusted companion!
+
+                    address 
+                        a(href="http://www.youtube.com/watch?v=kUs-fH1k-aM&t=47s") <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24"><path fill="#000" fill-opacity="0" d="M12 11L12 12L12 13z"><animate fill="freeze" attributeName="d" begin="0.6s" dur="0.2s" values="M12 11L12 12L12 13z;M10 8.5L16 12L10 15.5z"/><set fill="freeze" attributeName="fill-opacity" begin="0.6s" to="1"/></path><path fill="none" stroke="#000" stroke-dasharray="64" stroke-dashoffset="64" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5c9 0 9 0 9 7c0 7 0 7 -9 7c-9 0 -9 0 -9 -7c0 -7 0 -7 9 -7Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="64;0"/></path></svg>
+                        a(href="https://x.com/iamennoh")  <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24"><path fill="#000" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95"/></svg>
+                    address 
+                        a#userPhone(href="tel:+254795263459") 0795 263459
+                        a#userPhone(href="tel:+254795263459") 0795 263459
+                        a#userLocation(href="http://maps.app.goo.gl/tehJwvp2rm8F3ZbC8") Doshi Group of Companies
+                        a(href="mailto:motors@gmail.com") motors@gmail.com 
+
+            section#safety_tips
+                h2.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--1000 Safety tips
+
+                ul
+                    li.clr-pri--1000.fw-pri--400.ff-sec.fs-pri--200 Avoid sending any prepayments
+                    li.clr-pri--1000.fw-pri--400.ff-sec.fs-pri--200 Meet with the seller at a safe public place
+                    li.clr-pri--1000.fw-pri--400.ff-sec.fs-pri--200 Inspect what you're going to buy to make sure it's what you need
+                    li.clr-pri--1000.fw-pri--400.ff-sec.fs-pri--200 Check all the docs and only pay if you're satisfied
+
+                .btn
+                    button.bdg-sec--400#markUnavailable
+                        p.clr-pri--200.fw-pri--400.ff-sec.fs-pri--200 Mark unavailable
+                    button.bdg-pri--200#reportAbuse
+                        p.clr-sec--400.fw-pri--400.ff-sec.fs-pri--200 Report Abuse
+                    button.bdg-pri--1000#reportAbuse
+                        p.clr-pri--200.fw-pri--400.ff-sec.fs-pri--200 Show contact
+
         script(type="module", src="/dist/index.js")
