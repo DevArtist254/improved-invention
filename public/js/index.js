@@ -2,9 +2,8 @@ import store from "./store/store";
 import search from "./ui/search";
 
 
-const sideBar = document.querySelector(".images__sec");
-const main = document.getElementById("main");
-const sideBarTop = sideBar.offsetTop;
+const sideBar = document?.querySelector(".images__sec");
+const main = document?.getElementById("main");
 
 window.addEventListener("scroll", () => {
   const parentRect = main.getBoundingClientRect();
@@ -14,6 +13,19 @@ window.addEventListener("scroll", () => {
     sideBar.classList.add("sticky");
   } else {
     sideBar.classList.remove("sticky");
+  }
+})
+
+const sideTip = document?.getElementById("safety_tips");
+
+window.addEventListener("scroll", () => {
+  const parentRect = sideBar.getBoundingClientRect();
+  const sideBarRect = sideTip.getBoundingClientRect();
+
+  if (parentRect.top <= 20 && parentRect.bottom - sideBarRect.height >= 20) {
+    sideTip.classList.add("sticky");
+  } else {
+    sideTip.classList.remove("sticky");
   }
 })
 
