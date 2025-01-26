@@ -1,5 +1,6 @@
 import store from "./store/store";
 import search from "./ui/search";
+import newlocation from "./ui/map";
 
 
 const sideBar = document?.querySelector(".images__sec");
@@ -32,6 +33,7 @@ window.addEventListener("scroll", () => {
 const init = function () {
   search.handleAnimation();
   search.handleSearch();
+  newlocation.displayMap();
 }
 
 init();

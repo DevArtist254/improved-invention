@@ -9,6 +9,14 @@ html {
   font-size: 62.5%;
 }
 
+.show {
+  display: inline-block;
+}
+
+.hide {
+  display: none;
+}
+
 .ff-pri {
   font-family: "Newsreader", serif;
 }
@@ -316,6 +324,17 @@ img {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+.user__stack {
+  display: flex;
+  flex-direction: column;
+}
+.user__location {
+  height: 50vh;
+}
+
+#map {
+  height: 100%;
 }
 
 address {

@@ -5,6 +5,7 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="preconnect" href="https://fonts.googleapis.com")
         link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css", integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=", crossorigin)
         link(href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet")
         link(rel="stylesheet", href="/style/style.css")
         title= title
@@ -14,30 +15,30 @@ html(lang="en")
         main#main
             section#images.images
                 .images__pri.images__pri--1
-                    img(src="./images/aaron-huber/c2.jpg", alt="car1")
+                    img(src=`${images[0].src}`, alt="car1")
                 .images__sec
                     .images__sec--mask
                         span.images__sec--text 
-                            h2.ff-sec.fw-pri--200.fs-pri--1200.clr-pri--1000 3,000,000 ksh 
+                            h2.ff-sec.fw-pri--200.fs-pri--1200.clr-pri--1000= price 
                             p.ff-sec.fw-pri--800.fs-pri--600.clr-pri--1000 Request a call
                         .images__sec--2
-                            img(src="./images/aaron-huber/c3.jpg", alt="car3")
+                            img(src=`${images[1].src}`, alt="car3")
                     .images__sec--1
-                        img(src="./images/aaron-huber/c1.jpg", alt="car2")
+                        img(src=`${images[2].src}`, alt="car2")
                     .images__sec--3
-                        img(src="./images/aaron-huber/c4.jpg", alt="car4")
+                        img(src=`${images[3].src}`, alt="car4")
                     .images__sec--mask
                         span.images__sec--text 
                             h1.ff-sec.fw-pri--1000.fs-pri--1400.clr-pri--1000 7+ Images 
                         .images__sec--4
-                            img(src="./images/aaron-huber/c3.jpg", alt="car3")
+                            img(src=`${images[4].src}`, alt="car3")
 
             #ad
                 .main
                     .head
                         .head__intro
-                            h1.ff-pri.fs-pri--1400.fw-pri--400.clr-pri--1000 BMW 330i 2011 Green
-                            p.ff-sec.fw-pri--800.fs-pri--600.clr-pri--1000 Muthaka Motors
+                            h1.ff-pri.fs-pri--1400.fw-pri--400.clr-pri--1000= title 
+                            p.ff-sec.fw-pri--800.fs-pri--600.clr-pri--1000= seller
 
                         .head__text
                             p.ff-sec.fw-pri--400.fs-pri--600.clr-sec--400 Show contact
@@ -48,10 +49,10 @@ html(lang="en")
                             img(src="./assests/images/Group-4.svg", alt="bookmark")
         
                         .details__desc
-                            p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 Negotiable
-                            p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 Nairobi, Mombasa road
-                            p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 1,458 bookmarks
-                            p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 458 views
+                            p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200(class=`${!negotiable ? "hide": "show"}`) Negotiable
+                            p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200= location
+                            p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200= `${bookmarks} bookmarks`
+                            p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200= `${views} views`
 
                 .specificationsPri
                     p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 Local Used
@@ -60,26 +61,26 @@ html(lang="en")
 
                 .specificationsSec
                     .specificationsSec__des(style="grid-area:intro")
-                        h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600 Nissan
-                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 make
+                        h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600= specifications[0].value
+                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200= specifications[0].type
                     .specificationsSec__des(style="grid-area:m1")
-                        h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600 2006
-                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 drivetrain 
+                        h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600= specifications[1].value
+                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200= specifications[1].type
                     .specificationsSec__des(style="grid-area:s1")
-                        h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600 Sylphy
-                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 trim 
+                        h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600= specifications[2].value
+                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200= specifications[2].type
                     .specificationsSec__des(style="grid-area:f1")
-                        h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600 Front wheel 
-                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 drivetrain 
+                        h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600= specifications[3].value
+                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200= specifications[3].type
                     .specificationsSec__des(style="grid-area:f2")
-                        h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600 1800
-                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 Engine size 
+                        h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600= specifications[4].value 
+                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200= specifications[4].type
                     .specificationsSec__des(style="grid-area:f3")
-                        h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600 Bluebird 
-                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 model
+                        h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600= specifications[5].value 
+                        p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200= specifications[5].type
 
                 .description
-                    p.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600 Looking for a reliable and stylish ride? Check out this 2002 Suzuki Jimny, a compact yet rugged SUV that's perfect for both city drives and off-road adventures. Powered by a 1328cc petrol engine paired with a manual transmission, this vehicle delivers excellent performance and control. Known for its durability and efficiency, the Jimny is a favorite among drivers who value practicality and style. This particular model is super clean, well-maintained, and ready to hit the road. Don’t miss the chance to own this versatile and trusted companion!
+                    p.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600= description
 
                 .user
                     .user__intro
@@ -90,27 +91,35 @@ html(lang="en")
                         img(src="./images/aaron-huber/alexander-hipp.jpg", alt="alexander hipp")
 
                     .user__social
-                        p Connect with us
+                        p.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--400 Connect with us
                         address 
-                            a(href="http://www.youtube.com/watch?v=kUs-fH1k-aM&t=47s") <svg xmlns="http://www.w3.org/2000/svg" width="4.6rem" height="4.6rem" viewBox="0 0 24 24"><path fill="#000" fill-opacity="0" d="M12 11L12 12L12 13z"><animate fill="freeze" attributeName="d" begin="0.6s" dur="0.2s" values="M12 11L12 12L12 13z;M10 8.5L16 12L10 15.5z"/><set fill="freeze" attributeName="fill-opacity" begin="0.6s" to="1"/></path><path fill="none" stroke="#000" stroke-dasharray="64" stroke-dashoffset="64" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5c9 0 9 0 9 7c0 7 0 7 -9 7c-9 0 -9 0 -9 -7c0 -7 0 -7 9 -7Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="64;0"/></path></svg>
-                            a(href="https://x.com/iamennoh")  <svg xmlns="http://www.w3.org/2000/svg" width="4.6rem" height="4.6rem" viewBox="0 0 24 24"><path fill="#000" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="4.6rem" height="4.6rem" viewBox="0 0 32 32"><path fill="#000" d="M31.937 6.093a13.4 13.4 0 0 1-3.765 1.032a6.6 6.6 0 0 0 2.885-3.631a13.7 13.7 0 0 1-4.172 1.579a6.56 6.56 0 0 0-11.178 5.973c-5.453-.255-10.287-2.875-13.52-6.833a6.46 6.46 0 0 0-.891 3.303a6.56 6.56 0 0 0 2.916 5.457a6.5 6.5 0 0 1-2.968-.817v.079a6.57 6.57 0 0 0 5.26 6.437a6.8 6.8 0 0 1-1.724.229c-.421 0-.823-.041-1.224-.115a6.59 6.59 0 0 0 6.14 4.557a13.17 13.17 0 0 1-8.135 2.801a13 13 0 0 1-1.563-.088a18.66 18.66 0 0 0 10.079 2.948c12.067 0 18.661-9.995 18.661-18.651c0-.276 0-.557-.021-.839a13.1 13.1 0 0 0 3.281-3.396z"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="4.6rem" height="4.6rem" viewBox="0 0 32 32"><path fill="#000" d="M23.328 19.177c-.401-.203-2.354-1.156-2.719-1.292c-.365-.13-.63-.198-.896.203c-.26.391-1.026 1.286-1.26 1.547s-.464.281-.859.104c-.401-.203-1.682-.62-3.203-1.984c-1.188-1.057-1.979-2.359-2.214-2.76c-.234-.396-.026-.62.172-.818c.182-.182.401-.458.604-.698c.193-.24.255-.401.396-.661c.13-.281.063-.5-.036-.698s-.896-2.161-1.229-2.943c-.318-.776-.651-.677-.896-.677c-.229-.021-.495-.021-.76-.021s-.698.099-1.063.479c-.365.401-1.396 1.359-1.396 3.297c0 1.943 1.427 3.823 1.625 4.104c.203.26 2.807 4.26 6.802 5.979c.953.401 1.693.641 2.271.839c.953.302 1.823.26 2.51.161c.76-.125 2.354-.964 2.688-1.901c.339-.943.339-1.724.24-1.901c-.099-.182-.359-.281-.76-.458zM16.083 29h-.021c-2.365 0-4.703-.641-6.745-1.839l-.479-.286l-5 1.302l1.344-4.865l-.323-.5a13.17 13.17 0 0 1-2.021-7.01c0-7.26 5.943-13.182 13.255-13.182c3.542 0 6.865 1.38 9.365 3.88a13.06 13.06 0 0 1 3.88 9.323C29.328 23.078 23.39 29 16.088 29zM27.359 4.599C24.317 1.661 20.317 0 16.062 0C7.286 0 .14 7.115.135 15.859c0 2.792.729 5.516 2.125 7.927L0 32l8.448-2.203a16.1 16.1 0 0 0 7.615 1.932h.005c8.781 0 15.927-7.115 15.932-15.865c0-4.234-1.651-8.219-4.661-11.214z"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="4.6rem" height="4.6rem" viewBox="0 0 32 32"><path fill="#000" d="M29.913 13.919c-.113-.5-.425-.962-.781-1.156c-.113-.063-.813-.137-1.563-.169c-1.256-.056-1.394-.081-1.794-.313c-.631-.369-.8-.769-.806-1.844c-.006-2.063-.863-3.981-2.556-5.706C21.207 3.5 19.857 2.668 18.319 2.2c-.369-.113-1.194-.15-3.956-.181c-4.338-.05-5.3.037-6.775.625c-2.719 1.075-4.669 3.363-5.381 6.287c-.131.55-.163 1.431-.194 6.494c-.037 6.344.006 7.275.4 8.531c.975 3.1 3.744 5.394 6.525 5.894c.925.169 12.331.206 13.5.05c2.031-.275 3.625-1.094 5.119-2.619c1.081-1.106 1.756-2.3 2.2-3.881c.306-1.1.281-8.925.156-9.481M9.781 9.944c.488-.494.625-.513 3.675-.513c2.744 0 2.837.006 3.238.213c.581.294.837.706.837 1.369c0 .594-.238 1.012-.769 1.35c-.287.181-.456.194-3.144.206c-1.656.012-2.981-.025-3.175-.075c-1.038-.294-1.425-1.781-.663-2.55zm11.988 12.487l-.931.15l-4.844.056c-4.256.05-5.456-.025-5.681-.125c-.444-.194-.863-.731-.931-1.212c-.069-.456.162-1.081.512-1.4c.444-.4.637-.412 6.081-.419c5.6-.006 5.569-.006 6.1.488c.756.706.594 1.95-.306 2.462"/></svg>
-
+                            each social in sellersDetails.socials
+                                .user__social--link
+                                    a(href=`${social.image}`)
+                                        img(src=`./assests/images/socials/${social.image}.svg`, alt=`${social.image} logo`)
+                            
                 .user__address
                     address 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="4.6rem" height="4.6rem" viewBox="0 0 24 24"><path fill="#000" d="m15.73 14.85l-2.52 2.52a15.05 15.05 0 0 1-6.59-6.59l2.53-2.53L8.54 3H3.03C2.45 13.18 10.82 21.55 21 20.97v-5.51zM18 9h-2.59l5.02-5.02l-1.41-1.41L14 7.59V5h-2v6h6z"/></svg>
-                        .userPhone
-                            a#userPhone(href="tel:+254795263459") 0795 263459
-                            a#userPhone(href="tel:+254795263459") 0795 263459
+                        .user__address--img
+                            img(src=`./assests/images/icons/phone.svg`, alt="phone call")
+                        .user__stack
+                            a.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600#userPhone(href="tel:+254795263459") 0795 263459
+                            a.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600#userPhone(href="tel:+254795263459") 0795 263459
                     address 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="4.6rem" height="4.6rem" viewBox="0 0 24 24"><path fill="#000" d="M12 2c-4.2 0-8 3.22-8 8.2c0 3.18 2.45 6.92 7.34 11.23c.38.33.95.33 1.33 0C17.55 17.12 20 13.38 20 10.2C20 5.22 16.2 2 12 2m0 10c-1.1 0-2-.9-2-2s.9-2 2-2s2 .9 2 2s-.9 2-2 2"/></svg>
-                        a#userLocation(href="http://maps.app.goo.gl/tehJwvp2rm8F3ZbC8") Doshi Group of Companies
+                        .user__address--img
+                            img(src=`./assests/images/icons/location.svg`, alt="location")
+                        .user__stack
+                            h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600#userLocation View sellers location
+                            a.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600#sellersLocations location 1
                     
                     address 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="4.6rem" height="4.6rem" viewBox="0 0 24 24"><path fill="#000" d="M21 8V7l-3 2l-3-2v1l3 2zm1-5H2C.9 3 0 3.9 0 5v14c0 1.1.9 2 2 2h20c1.1 0 1.99-.9 1.99-2L24 5c0-1.1-.9-2-2-2M8 6c1.66 0 3 1.34 3 3s-1.34 3-3 3s-3-1.34-3-3s1.34-3 3-3m6 12H2v-1c0-2 4-3.1 6-3.1s6 1.1 6 3.1zm8-6h-8V6h8z"/></svg>
-                        a(href="mailto:motors@gmail.com") motors@gmail.com 
+                        .user__address--img
+                            img(src=`./assests/images/icons/email.svg`, alt="email icon")
+                        a.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600(href="mailto:motors@gmail.com") motors@gmail.com 
+                    
+                .user__location
+                     #map(data-locations=`${JSON.stringify(sellersDetails.location_address)}`)
+
 
             section#safety_tips
                 h2.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--800 Safety tips
@@ -129,4 +138,5 @@ html(lang="en")
                     button.btn__st--ctaTer.bdg-pri--1000#reportAbuse
                         p.clr-pri--200.fw-pri--200.ff-sec.fs-pri--200 Show contact
 
+        script(src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js", integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=", crossorigin)
         script(type="module", src="/dist/index.js")

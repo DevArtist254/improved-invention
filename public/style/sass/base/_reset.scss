@@ -13,6 +13,13 @@ html {
     font-size: 62.5%;
 }
 
+.show {
+    display: inline-block;
+}
+
+.hide {
+    display: none;
+}
 
 @each $name, $value in $ff {
     .ff-#{$name} {

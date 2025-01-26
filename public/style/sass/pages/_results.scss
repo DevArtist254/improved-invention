@@ -142,7 +142,21 @@ img {
       @include flexRowCr(center, space-between);
   
     }
+
+    &__stack {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__location {
+      height: 50vh;
+    }
 }
+
+#map {
+  height: 100%;
+}
+
 
 address {
     @include flexRowCr(center, initial);
