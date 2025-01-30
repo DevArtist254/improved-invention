@@ -204,7 +204,7 @@ img {
 
 #ad {
   margin-top: 4rem;
-  width: 125.5rem;
+  width: 79%;
 }
 
 .main,
@@ -264,7 +264,7 @@ img {
 }
 .images__pri {
   height: 65.6rem;
-  width: 125.5rem;
+  width: 79%;
 }
 .images__sec {
   position: absolute;
@@ -275,16 +275,18 @@ img {
   width: 33.1rem;
 }
 .images__sec--1, .images__sec--3 {
-  height: 20.4rem;
+  height: 16.4vh;
+  margin-bottom: 3px;
 }
 .images__sec--2 {
-  height: 11rem;
+  height: 11vh;
 }
 .images__sec--4 {
-  height: 13.8rem;
+  height: 13vh;
 }
 .images__sec--mask {
   position: relative;
+  margin-bottom: 3px;
 }
 .images__sec--text {
   width: 100%;
@@ -331,6 +333,9 @@ img {
 }
 .user__location {
   height: 50vh;
+}
+.user__social {
+  margin-right: 20px;
 }
 
 #map {

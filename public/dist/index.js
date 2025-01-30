@@ -16,37 +16,7 @@
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./store/store */ \"./public/js/store/store.js\");\n/* harmony import */ var _ui_search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ui/search */ \"./public/js/ui/search.js\");\n/* harmony import */ var _ui_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui/map */ \"./public/js/ui/map.js\");\n\n\n\n\n\nconst sideBar = document?.querySelector(\".images__sec\");\nconst main = document?.getElementById(\"main\");\n\nwindow.addEventListener(\"scroll\", () => {\n  const parentRect = main.getBoundingClientRect();\n  const sidebarRect = sideBar.getBoundingClientRect();\n\n  if (parentRect.top <= 20 && parentRect.bottom - sidebarRect.height >= 20) {\n    sideBar.classList.add(\"sticky\");\n  } else {\n    sideBar.classList.remove(\"sticky\");\n  }\n})\n\nconst sideTip = document?.getElementById(\"safety_tips\");\n\nwindow.addEventListener(\"scroll\", () => {\n  const parentRect = sideBar.getBoundingClientRect();\n  const sideBarRect = sideTip.getBoundingClientRect();\n\n  if (parentRect.top <= 20 && parentRect.bottom - sideBarRect.height >= 20) {\n    sideTip.classList.add(\"sticky\");\n  } else {\n    sideTip.classList.remove(\"sticky\");\n  }\n})\n\nconst init = function () {\n  _ui_search__WEBPACK_IMPORTED_MODULE_1__[\"default\"].handleAnimation();\n  _ui_search__WEBPACK_IMPORTED_MODULE_1__[\"default\"].handleSearch();\n  _ui_map__WEBPACK_IMPORTED_MODULE_2__[\"default\"].displayMap();\n}\n\ninit();\n\nconst unsubscribe = _store_store__WEBPACK_IMPORTED_MODULE_0__[\"default\"].subscribe(() => {\n  console.log(\"Current state:\", _store_store__WEBPACK_IMPORTED_MODULE_0__[\"default\"].getState());\n});\n\n// Dispatch some actions\n\n_store_store__WEBPACK_IMPORTED_MODULE_0__[\"default\"].dispatch({ type: \"INCREMENT\" });\n_store_store__WEBPACK_IMPORTED_MODULE_0__[\"default\"].dispatch({ type: \"INCREMENT\" });\n_store_store__WEBPACK_IMPORTED_MODULE_0__[\"default\"].dispatch({ type: \"INCREMENT\" });\n_store_store__WEBPACK_IMPORTED_MODULE_0__[\"default\"].dispatch({ type: \"DECREMENT\" });\n\n_store_store__WEBPACK_IMPORTED_MODULE_0__[\"default\"].dispatch({type: 'SET_NAME', payload: 'Alice'});\n_store_store__WEBPACK_IMPORTED_MODULE_0__[\"default\"].dispatch({ type: 'SET_AGE', payload: 25});\n\nunsubscribe();\n\n_store_store__WEBPACK_IMPORTED_MODULE_0__[\"default\"].dispatch({ type: \"INCREMENT\" });\n\nconsole.log(\"Hello world\");\n\n\n//# sourceURL=webpack://mji/./public/js/index.js?");
-
-/***/ }),
-
-/***/ "./public/js/store/combineReducers.js":
-/*!********************************************!*\
-  !*** ./public/js/store/combineReducers.js ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ combineReducers)\n/* harmony export */ });\nfunction combineReducers(reducers) {\n    return (state = {}, action) => {\n        const nextState = {};\n\n        for(const key in reducers) {\n            const reducer = reducers[key];\n            const previousStateForKey = state[key];\n            nextState[key] = reducer(previousStateForKey, action);\n        }\n\n        return nextState;\n    }\n}\n\n//# sourceURL=webpack://mji/./public/js/store/combineReducers.js?");
-
-/***/ }),
-
-/***/ "./public/js/store/counterReducer.js":
-/*!*******************************************!*\
-  !*** ./public/js/store/counterReducer.js ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ counterReducer)\n/* harmony export */ });\nconst initialState = {\n  count: 0,\n};\n\nfunction counterReducer(state = initialState, action) {\n  switch (action.type) {\n    case \"INCREMENT\":\n      return { ...state, count: state.count + 1 };\n    case \"DECREMENT\":\n      return { ...state, count: state.count - 1 };\n    case \"RESET\":\n      return { ...state, count: 0 };\n    default:\n      return state;\n  }\n}\n\n\n//# sourceURL=webpack://mji/./public/js/store/counterReducer.js?");
-
-/***/ }),
-
-/***/ "./public/js/store/createStore.js":
-/*!****************************************!*\
-  !*** ./public/js/store/createStore.js ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ createStore)\n/* harmony export */ });\nfunction createStore(reducer) {\n  let state;\n  const listeners = [];\n\n  const getState = () => state;\n\n  const dispatch = (action) => {\n    state = reducer(state, action);\n\n    listeners.forEach((listener) => listener());\n  };\n\n  const subscribe = (listener) => {\n    listeners.push(listener); // Add listener to the array\n    // Return an unsubscribe function\n    return () => {\n      const index = listeners.indexOf(listener);\n      if (index !== -1) listeners.splice(index, 1);\n    };\n  };\n\n  dispatch({ type: \"@@INIT\" });\n\n  return { getState, dispatch, subscribe };\n}\n\n\n//# sourceURL=webpack://mji/./public/js/store/createStore.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ui_search__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui/search */ \"./public/js/ui/search.js\");\n/* harmony import */ var _ui_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ui/map */ \"./public/js/ui/map.js\");\n/* harmony import */ var _ui_results__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui/results */ \"./public/js/ui/results.js\");\n\n\n\n\nconst map = document.getElementById(\"map\");\n\nconst init = function () {\n  _ui_search__WEBPACK_IMPORTED_MODULE_0__[\"default\"].handleAnimation();\n  _ui_search__WEBPACK_IMPORTED_MODULE_0__[\"default\"].handleSearch();\n  if(map) {\n    _ui_map__WEBPACK_IMPORTED_MODULE_1__[\"default\"].displayMap();\n  }\n  _ui_results__WEBPACK_IMPORTED_MODULE_2__[\"default\"].windowAnimation();\n\n};\n\ninit();\n\nconsole.log(\"Hello world\");\n\n\n//# sourceURL=webpack://mji/./public/js/index.js?");
 
 /***/ }),
 
@@ -56,17 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _createStore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createStore */ \"./public/js/store/createStore.js\");\n/* harmony import */ var _combineReducers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./combineReducers */ \"./public/js/store/combineReducers.js\");\n/* harmony import */ var _counterReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./counterReducer */ \"./public/js/store/counterReducer.js\");\n/* harmony import */ var _usersReducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./usersReducer */ \"./public/js/store/usersReducer.js\");\n\n\n\n\n\nconst rootReducer = (0,_combineReducers__WEBPACK_IMPORTED_MODULE_1__[\"default\"])({\n    counter: _counterReducer__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n    user: _usersReducer__WEBPACK_IMPORTED_MODULE_3__[\"default\"]\n})\n\nconst store = (0,_createStore__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(rootReducer);\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (store);\n\n\n//# sourceURL=webpack://mji/./public/js/store/store.js?");
-
-/***/ }),
-
-/***/ "./public/js/store/usersReducer.js":
-/*!*****************************************!*\
-  !*** ./public/js/store/usersReducer.js ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ userReducer)\n/* harmony export */ });\nconst initialState = {\n    name: \"\",\n    age: 0\n}\n\nfunction userReducer(state = initialState, action) {\n    switch (action.type) {\n      case \"SET_NAME\":\n        return { ...state, name: action.payload };\n      case \"SET_AGE\":\n        return { ...state, age: action.payload };\n      default:\n        return state;\n    }\n}\n\n//# sourceURL=webpack://mji/./public/js/store/usersReducer.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass store {\n\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (store);\n\n\n//# sourceURL=webpack://mji/./public/js/store/store.js?");
 
 /***/ }),
 
@@ -76,7 +36,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass Location {\n  #btn = document.getElementById(\"sellersLocations\");\n  #map = document.getElementById(\"map\");\n  #locations = JSON.parse(this.#map.dataset.locations);\n\n  displayMap() {\n    this.#btn.addEventListener(\"click\", async (e) => {\n     e.preventDefault();\n     \n     console.log(this.#locations);\n\n    const map = L.map(\"map\").setView([51.505, -0.09], 13);\n\n     L.tileLayer(\"https://tile.openstreetmap.org/{z}/{x}/{y}.png\", {\n       maxZoom: 19,\n       attribution:\n         '&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a>',\n     }).addTo(map);\n    })\n  }\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Location());\n\n//# sourceURL=webpack://mji/./public/js/ui/map.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass Location {\n  #btn = document.getElementById(\"userLocation\");\n  #map = document.getElementById(\"map\");\n\n  displayMap() {\n    this.#btn.addEventListener(\"click\", async (e) => {\n      e.preventDefault();\n      const locations = JSON.parse(this.#map.dataset.locations);\n\n      console.log(locations);\n\n      const map = L.map(\"map\").setView([51.505, -0.09], 13);\n\n      L.tileLayer(\"https://tile.openstreetmap.org/{z}/{x}/{y}.png\", {\n        maxZoom: 19,\n        attribution:\n          '&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a>',\n      }).addTo(map);\n    });\n  }\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Location());\n\n//# sourceURL=webpack://mji/./public/js/ui/map.js?");
+
+/***/ }),
+
+/***/ "./public/js/ui/results.js":
+/*!*********************************!*\
+  !*** ./public/js/ui/results.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../store/store */ \"./public/js/store/store.js\");\n\n\nclass Results {\n  #sideBar = document?.querySelector(\".images__sec\");\n  #main = document?.getElementById(\"main\");\n  #sideTip = document?.getElementById(\"safety_tips\");\n  #window = window;\n  #reportAbuse = document?.getElementById(\"reportAbuse\");\n\n  windowAnimation() {\n    this.#window.addEventListener(\"scroll\", () => {\n      const parentRect = this.#main.getBoundingClientRect();\n      const sidebarRect = this.#sideBar.getBoundingClientRect();\n\n      if (\n        parentRect.top <= 20 &&\n        parentRect.bottom - sidebarRect.height >= 20\n      ) {\n        this.#sideBar.classList.add(\"sticky\");\n      } else {\n        this.#sideBar.classList.remove(\"sticky\");\n      }\n    });\n\n    this.#window.addEventListener(\"scroll\", () => {\n      const parentRect = this.#sideBar.getBoundingClientRect();\n      const sideBarRect = this.#sideTip.getBoundingClientRect();\n\n      if (\n        parentRect.top <= 20 &&\n        parentRect.bottom - sideBarRect.height >= 20\n      ) {\n        this.#sideTip.classList.add(\"sticky\");\n      } else {\n        this.#sideTip.classList.remove(\"sticky\");\n      }\n    });\n  }\n}\n\nconst results = new Results();\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (results);\n\n\n//# sourceURL=webpack://mji/./public/js/ui/results.js?");
 
 /***/ }),
 
