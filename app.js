@@ -48,9 +48,9 @@ app.get("/results", (req, res) => {
     bookmarks: 1458,
     views: 458,
     primary_specifications: [
-      { usage: "Local Used" },
-      { fuel_type: "Petrol" },
-      { transmission: "CVT" },
+      { type: "usage", value: "Local Used" },
+      { type: "fuel_type", value: "Petrol" },
+      { type: "transmission", value: "Automatic" },
     ],
     images: [
       {

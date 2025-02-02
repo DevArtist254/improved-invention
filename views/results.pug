@@ -55,10 +55,11 @@ html(lang="en")
                             p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200= `${views} views`
 
                 .specificationsPri
-                    p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 Local Used
-                    p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 Petrol
-                    p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200 CVT
-
+                    each spec in primary_specifications
+                        .specificationsPri__icon
+                            img(src=`./assests/images/icons/${spec.type}.svg`, alt=`${spec.value} logo`)
+                            p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200= spec.value
+                    
                 .specificationsSec
                     .specificationsSec__des(style="grid-area:intro")
                         h3.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--600= specifications[0].value
