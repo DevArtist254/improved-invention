@@ -12,47 +12,32 @@ html(lang="en")
     body 
         include _nav
         
-        main#main
-            section#images.images
-                .images__pri.images__pri--1
-                    img(src=`${images[0].src}`, alt="car1")
-                .images__sec
-                    .images__sec--mask
-                        span.images__sec--text 
-                            h2.ff-sec.fw-pri--200.fs-pri--1200.clr-pri--1000= price 
-                            p.ff-sec.fw-pri--800.fs-pri--600.clr-pri--1000 Request a call
-                        .images__sec--2
-                            img(src=`${images[1].src}`, alt="car3")
-                    .images__sec--1
-                        img(src=`${images[2].src}`, alt="car2")
-                    .images__sec--3
-                        img(src=`${images[3].src}`, alt="car4")
-                    .images__sec--mask
-                        span.images__sec--text 
-                            h1.ff-sec.fw-pri--1000.fs-pri--1400.clr-pri--1000 7+ Images 
-                        .images__sec--4
-                            img(src=`${images[4].src}`, alt="car3")
+        .container
+            main#main
+                section#images.images
+                    .images__pri.images__pri--1
+                        img(src=`${images[0].src}`, alt="car1")
 
-            #ad
-                .main
-                    .head
-                        .head__intro
-                            h1.ff-pri.fs-pri--1400.fw-pri--400.clr-pri--1000= title 
-                            p.ff-sec.fw-pri--800.fs-pri--600.clr-pri--1000= seller
+                #ad
+                    .main
+                        .head
+                            .head__intro
+                                h1.ff-pri.fs-pri--1400.fw-pri--400.clr-pri--1000= title 
+                                p.ff-sec.fw-pri--800.fs-pri--600.clr-pri--1000= seller
 
-                        .head__text
-                            p.ff-sec.fw-pri--400.fs-pri--600.clr-sec--400 Show contact
-                            p.ff-sec.fw-pri--400.fs-pri--600.clr-sec--200 Start chat
+                            .head__text
+                                p.ff-sec.fw-pri--400.fs-pri--600.clr-sec--400 Show contact
+                                p.ff-sec.fw-pri--400.fs-pri--600.clr-sec--200 Start chat
 
-                    .details
-                        .details__bookmark
-                            img(src="./assests/images/Group-4.svg", alt="bookmark")
+                        .details
+                            .details__bookmark
+                                img(src="./assests/images/Group-4.svg", alt="bookmark")
         
-                        .details__desc
-                            p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200(class=`${!negotiable ? "hide": "show"}`) Negotiable
-                            p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200= location
-                            p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200= `${bookmarks} bookmarks`
-                            p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200= `${views} views`
+                            .details__desc
+                                p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200(class=`${!negotiable ? "hide": "show"}`) Negotiable
+                                p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200= location
+                                p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200= `${bookmarks} bookmarks`
+                                p.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--200= `${views} views`
 
                 .specificationsPri
                     each spec in primary_specifications
@@ -120,23 +105,40 @@ html(lang="en")
                 .user__location
                      #map(data-locations=`${JSON.stringify(sellersDetails.location_address)}`)
 
+            .sidebar
+                .sidebar__content
+                    .images__sec
+                        .images__sec--mask
+                            span.images__sec--text 
+                                h2.ff-sec.fw-pri--200.fs-pri--1200.clr-pri--1000= price 
+                                p.ff-sec.fw-pri--800.fs-pri--600.clr-pri--1000 Request a call
+                            .images__sec--2
+                                img(src=`${images[1].src}`, alt="car3")
+                        .images__sec--1
+                            img(src=`${images[2].src}`, alt="car2")
+                        .images__sec--3
+                            img(src=`${images[3].src}`, alt="car4")
+                        .images__sec--mask
+                            span.images__sec--text 
+                                h1.ff-sec.fw-pri--1000.fs-pri--1400.clr-pri--1000 7+ Images 
+                            .images__sec--4
+                               img(src=`${images[4].src}`, alt="car3")
+                    section#safety_tips
+                        h2.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--800 Safety tips
 
-            section#safety_tips
-                h2.clr-pri--1000.fw-pri--800.ff-sec.fs-pri--800 Safety tips
+                        ul
+                            li.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--200 Avoid sending any prepayments
+                            li.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--200 Meet with the seller at a safe public place
+                            li.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--200 Inspect what you're going to buy to make sure it's what you need
+                            li.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--200 Check all the docs and only pay if you're satisfied
 
-                ul
-                    li.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--200 Avoid sending any prepayments
-                    li.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--200 Meet with the seller at a safe public place
-                    li.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--200 Inspect what you're going to buy to make sure it's what you need
-                    li.clr-pri--1000.fw-pri--200.ff-sec.fs-pri--200 Check all the docs and only pay if you're satisfied
-
-                .btn
-                    button.btn__st--ctaPri.bdg-sec--400#markUnavailable
-                        p.clr-pri--200.fw-pri--200.ff-sec.fs-pri--200 Mark unavailable
-                    button.btn__st--ctaSec.bdg-pri--200#reportAbuse
-                        p.clr-sec--400.fw-pri--200.ff-sec.fs-pri--200 Report Abuse
-                    button.btn__st--ctaTer.bdg-pri--1000
-                        p.clr-pri--200.fw-pri--200.ff-sec.fs-pri--200 Show contact
+                        .btn
+                            button.btn__st--ctaPri.bdg-sec--400#markUnavailable
+                                p.clr-pri--200.fw-pri--200.ff-sec.fs-pri--200 Mark unavailable
+                            button.btn__st--ctaSec.bdg-pri--200#reportAbuse
+                                p.clr-sec--400.fw-pri--200.ff-sec.fs-pri--200 Report Abuse
+                            button.btn__st--ctaTer.bdg-pri--1000
+                                p.clr-pri--200.fw-pri--200.ff-sec.fs-pri--200 Show contact
 
         script(src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js", integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=", crossorigin)
         script(type="module", src="/dist/index.js")

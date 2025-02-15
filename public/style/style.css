@@ -190,10 +190,18 @@ html {
   text-decoration: none;
 }
 
-main {
-  position: relative;
+.container {
   max-width: 158.6rem;
   margin: 10rem auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: initial;
+}
+
+#main {
+  width: 79%;
 }
 
 img {
@@ -204,7 +212,6 @@ img {
 
 #ad {
   margin-top: 4rem;
-  width: 79%;
 }
 
 .main,
@@ -267,15 +274,9 @@ img {
 }
 .images__pri {
   height: 65.6rem;
-  width: 79%;
-}
-.images__sec {
-  position: absolute;
-  top: 0;
-  right: 0;
 }
 .images__sec--1, .images__sec--2, .images__sec--3, .images__sec--4 {
-  width: 33.1rem;
+  width: 100%;
 }
 .images__sec--1, .images__sec--3 {
   height: 16.4vh;
@@ -353,27 +354,19 @@ address {
   align-items: center;
 }
 
-#safety_tips {
-  position: absolute;
-  top: 734px;
-  right: 2px;
-  width: 33.1rem;
+.sidebar {
+  position: relative;
+  width: 20%;
 }
+
 #safety_tips ul {
   padding-left: 2rem;
 }
 
-#safety_tips.sticky {
-  position: fixed;
-  top: 739px;
-  right: 366px;
-  width: 33.1rem;
-}
-
-.images__sec.sticky {
+.sidebar__content.sticky {
   position: fixed;
   top: 0;
-  right: 366px;
+  width: 33.1rem;
 }
 
 .btn__st--ctaPri {

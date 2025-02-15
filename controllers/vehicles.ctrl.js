@@ -1,52 +1,19 @@
-const express = require("express");
-const cors = require("cors");
-
-const app = express();
-
-const vehicleRoute = require("./routes/vehicles.route");
-
-app.use(cors());
-
-app.set("view engine", "pug");
-app.use(express.static("public"));
-
-app.use((req, res, next) => {
-  req.requestTime = new Date().toISOString();
-  res.setHeader(
-    "Content-Security-Policy",
-    [
-      "default-src 'none';", // Block all sources by default
-      "script-src 'self' 'unsafe-eval' https://unpkg.com/leaflet@1.9.4/dist/leaflet.js;", // Allow scripts from self and Leaflet.js, enabling 'unsafe-eval'
-      "style-src 'self' 'unsafe-inline' https://unpkg.com/leaflet@1.9.4/dist/leaflet.css https://fonts.googleapis.com;", // Allow inline styles, Leaflet CSS, and Google Fonts styles
-      "font-src 'self' https://fonts.gstatic.com;", // Allow fonts from self and Google Fonts
-      "img-src 'self' data: https://*;", // Allow images from self, data URIs, and any HTTPS source
-      "connect-src 'self';", // Allow network requests to self
-      "frame-src 'none';", // Disallow embedding content in iframes
-      "base-uri 'self';", // Restrict <base> to same-origin
-      "form-action 'self';", // Restrict forms to same-origin
-    ].join(" ")
-  );
-
-  next();
-});
-
-app.get("/", (req, res) => {
-  res.render("index", {
-    title: "Hey",
-    message: "Hello world",
-  });
-});
-
-app.get("/results", (req, res) => {
-  console.log(req.query);
-
-  res.render("results", {
+exports.getVehicle = (req, res, next) => {
+  res.status(200).json({
     _id: "ObjectId",
     title: "BMW 330i 2011 Green",
-    seller: "Muthaka Motors",
+    vehicle_brand: "BMW",
+    vehicle_model: "330i",
+    color: "Green",
     price: "3,000,000 Ksh",
     negotiable: true,
-    location: "Nairobi, Mombasa Road",
+    location: {
+      _id: "5c88fa8cf4afda39709c2959",
+      description: "Nairobi, Mombasa Road",
+      type: "Point",
+      coordinates: [-80.128473, 25.781842],
+      open: true,
+    },
     bookmarks: 1458,
     views: 458,
     primary_specifications: [
@@ -101,7 +68,7 @@ app.get("/results", (req, res) => {
     report_abuse: false,
     sellersDetails: {
       _id: "ObjectId",
-      userName: "Muthaka Motors",
+      name: "Muthaka Motors",
       slogan: "trusted companion!",
       logo: "./images/aaron-huber/alexander-hipp.jpg",
       socials: [
@@ -142,12 +109,4 @@ app.get("/results", (req, res) => {
       email_address: ["motors@gmail.com"],
     },
   });
-});
-
-
-//
-app.use("/app/v1/vehicles", vehicleRoute);
-
-module.exports = app;
-
-
+};

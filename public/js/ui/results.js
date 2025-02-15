@@ -1,11 +1,8 @@
-import store from "../store/store";
 
 class Results {
-  #sideBar = document?.querySelector(".images__sec");
-  #main = document?.getElementById("main");
-  #sideTip = document?.getElementById("safety_tips");
+  #sideBar = document?.querySelector(".sidebar__content");
+  #main = document?.querySelector(".sidebar");
   #window = window;
-  #reportAbuse = document?.getElementById("reportAbuse");
 
   windowAnimation() {
     this.#window.addEventListener("scroll", () => {
@@ -22,19 +19,6 @@ class Results {
       }
     });
 
-    this.#window.addEventListener("scroll", () => {
-      const parentRect = this.#sideBar.getBoundingClientRect();
-      const sideBarRect = this.#sideTip.getBoundingClientRect();
-
-      if (
-        parentRect.top <= 20 &&
-        parentRect.bottom - sideBarRect.height >= 20
-      ) {
-        this.#sideTip.classList.add("sticky");
-      } else {
-        this.#sideTip.classList.remove("sticky");
-      }
-    });
   }
 }
 

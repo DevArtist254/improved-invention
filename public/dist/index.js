@@ -20,16 +20,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ui_
 
 /***/ }),
 
-/***/ "./public/js/store/store.js":
-/*!**********************************!*\
-  !*** ./public/js/store/store.js ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass store {\n\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (store);\n\n\n//# sourceURL=webpack://mji/./public/js/store/store.js?");
-
-/***/ }),
-
 /***/ "./public/js/ui/map.js":
 /*!*****************************!*\
   !*** ./public/js/ui/map.js ***!
@@ -46,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../store/store */ \"./public/js/store/store.js\");\n\n\nclass Results {\n  #sideBar = document?.querySelector(\".images__sec\");\n  #main = document?.getElementById(\"main\");\n  #sideTip = document?.getElementById(\"safety_tips\");\n  #window = window;\n  #reportAbuse = document?.getElementById(\"reportAbuse\");\n\n  windowAnimation() {\n    this.#window.addEventListener(\"scroll\", () => {\n      const parentRect = this.#main.getBoundingClientRect();\n      const sidebarRect = this.#sideBar.getBoundingClientRect();\n\n      if (\n        parentRect.top <= 20 &&\n        parentRect.bottom - sidebarRect.height >= 20\n      ) {\n        this.#sideBar.classList.add(\"sticky\");\n      } else {\n        this.#sideBar.classList.remove(\"sticky\");\n      }\n    });\n\n    this.#window.addEventListener(\"scroll\", () => {\n      const parentRect = this.#sideBar.getBoundingClientRect();\n      const sideBarRect = this.#sideTip.getBoundingClientRect();\n\n      if (\n        parentRect.top <= 20 &&\n        parentRect.bottom - sideBarRect.height >= 20\n      ) {\n        this.#sideTip.classList.add(\"sticky\");\n      } else {\n        this.#sideTip.classList.remove(\"sticky\");\n      }\n    });\n  }\n}\n\nconst results = new Results();\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (results);\n\n\n//# sourceURL=webpack://mji/./public/js/ui/results.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\nclass Results {\n  #sideBar = document?.querySelector(\".sidebar__content\");\n  #main = document?.querySelector(\".sidebar\");\n  #window = window;\n\n  windowAnimation() {\n    this.#window.addEventListener(\"scroll\", () => {\n      const parentRect = this.#main.getBoundingClientRect();\n      const sidebarRect = this.#sideBar.getBoundingClientRect();\n\n      if (\n        parentRect.top <= 20 &&\n        parentRect.bottom - sidebarRect.height >= 20\n      ) {\n        this.#sideBar.classList.add(\"sticky\");\n      } else {\n        this.#sideBar.classList.remove(\"sticky\");\n      }\n    });\n\n  }\n}\n\nconst results = new Results();\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (results);\n\n\n//# sourceURL=webpack://mji/./public/js/ui/results.js?");
 
 /***/ }),
 
