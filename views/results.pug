@@ -140,5 +140,19 @@ html(lang="en")
                             button.btn__st--ctaTer.bdg-pri--1000
                                 p.clr-pri--200.fw-pri--200.ff-sec.fs-pri--200 Show contact
 
+        .popup 
+            <svg id="prev" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#FFB162" d="m4.431 12.822l13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645"/></svg>
+                .popup__content
+                    .popup__content--imgMain
+                        each image, i in images
+                            .popup__content--sliders
+                                .numberText= `${i + 1} / ${images.length}` 
+                                img.popup__content--img(src=`${image.src}`, alt="car")
+                        .thumbnail
+                            each image, i in images 
+                                .thumbnail__content(style=`width: ${Math.floor(100/images.length)}%;`)
+                                    img.thumbnail__content--img(src=`${image.src}`, alt="car", id=`${i + 1}`)
+            <svg id="next" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#FFB162" d="M5.536 21.886a1 1 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886"/></svg>
+
         script(src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js", integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=", crossorigin)
         script(type="module", src="/dist/index.js")

@@ -17,6 +17,12 @@ html {
   display: none;
 }
 
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .ff-pri {
   font-family: "Newsreader", serif;
 }
@@ -190,6 +196,84 @@ html {
   text-decoration: none;
 }
 
+.btn__st--ctaPri {
+  margin-right: 4%;
+}
+.btn__st--ctaSec, .btn__st--ctaPri {
+  width: 48%;
+  height: 4.4rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn__st--ctaSec {
+  border: 1px solid #e6c068;
+}
+.btn__st--ctaTer {
+  width: 100%;
+  height: 4.4rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(27, 38, 50, 0.2);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.popup__content {
+  width: 80%;
+  height: 75%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+}
+.popup__content--imgMain {
+  width: 100%;
+  height: 88%;
+}
+.popup__content--sliders {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.popup__content--img {
+  width: 100%;
+  height: 100%;
+}
+
+.numberText {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.thumbnail {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 15vh;
+}
+.thumbnail__content {
+  height: 100%;
+}
+
 .container {
   max-width: 158.6rem;
   margin: 10rem auto;
@@ -201,13 +285,7 @@ html {
 }
 
 #main {
-  width: 79%;
-}
-
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 79.8%;
 }
 
 #ad {
@@ -279,7 +357,7 @@ img {
   width: 100%;
 }
 .images__sec--1, .images__sec--3 {
-  height: 16.4vh;
+  height: 19vh;
   margin-bottom: 3px;
 }
 .images__sec--2 {
@@ -366,29 +444,7 @@ address {
 .sidebar__content.sticky {
   position: fixed;
   top: 0;
-  width: 33.1rem;
-}
-
-.btn__st--ctaPri {
-  margin-right: 4%;
-}
-.btn__st--ctaSec, .btn__st--ctaPri {
-  width: 48%;
-  height: 4.4rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.btn__st--ctaSec {
-  border: 1px solid #e6c068;
-}
-.btn__st--ctaTer {
-  width: 100%;
-  height: 4.4rem;
-  margin-top: 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  width: 33rem;
 }
 
 /*# sourceMappingURL=style.css.map */

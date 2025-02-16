@@ -1,0 +1,55 @@
+@use "../abs/mixin" as *;
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    background-color: rgba(27, 38, 50, 0.2);
+    backdrop-filter: blur(10px);
+
+    width: 100%;
+    height: 100vh;
+
+    @include flexRowCr(center, center);
+
+
+    &__content {
+        width: 80%;
+        height: 75%;
+
+        @include flexRowCr(baseline, center);
+
+        &--imgMain {
+            width: 100%;
+            height: 88%;
+        }
+        
+        &--sliders{
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        &--img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.numberText {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.thumbnail {
+    @include flexRowCr();
+    height: 15vh;
+
+    &__content {
+        height: 100%;
+    }
+}

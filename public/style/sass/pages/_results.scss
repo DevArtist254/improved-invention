@@ -7,14 +7,9 @@
 }
 
 #main {
-  width: 79%;
+  width: 79.8%;
 }
 
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
 #ad {
   margin-top: 4rem;
@@ -82,9 +77,6 @@ img {
   }
 
   &__sec {
-    // position: absolute;
-    // top: 0;
-    // right: 0;
 
     &--1,
     &--2,
@@ -95,7 +87,7 @@ img {
 
     &--1,
     &--3 {
-      height: 16.4vh;
+      height: 19vh;
       margin-bottom: 3px;
     }
 
@@ -190,35 +182,6 @@ address {
 .sidebar__content.sticky {
   position: fixed;
   top: 0;
-  width: 33.1rem;
+  width: 33rem;
 }
 
-.btn {
-  &__st {
-    &--ctaPri {
-      margin-right: 4%;
-    }
-
-    &--ctaSec,
-    &--ctaPri {
-      width: 48%;
-      height: 4.4rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    &--ctaSec {
-      border: 1px solid #e6c068;
-    }
-
-    &--ctaTer {
-      width: 100%;
-      height: 4.4rem;
-      margin-top: 1rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  }
-}

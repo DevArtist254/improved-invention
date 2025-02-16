@@ -1,0 +1,30 @@
+.btn {
+    &__st {
+      &--ctaPri {
+        margin-right: 4%;
+      }
+  
+      &--ctaSec,
+      &--ctaPri {
+        width: 48%;
+        height: 4.4rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+  
+      &--ctaSec {
+        border: 1px solid #e6c068;
+      }
+  
+      &--ctaTer {
+        width: 100%;
+        height: 4.4rem;
+        margin-top: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+  

@@ -21,6 +21,13 @@ html {
     display: none;
 }
 
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+
 @each $name, $value in $ff {
     .ff-#{$name} {
         font-family: "#{$value}", serif;
