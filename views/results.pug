@@ -144,10 +144,11 @@ html(lang="en")
             <svg id="prev" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#FFB162" d="m4.431 12.822l13 9A1 1 0 0 0 19 21V3a1 1 0 0 0-1.569-.823l-13 9a1.003 1.003 0 0 0 0 1.645"/></svg>
                 .popup__content
                     .popup__content--imgMain
-                        each image, i in images
-                            .popup__content--sliders
-                                .numberText= `${i + 1} / ${images.length}` 
-                                img.popup__content--img(src=`${image.src}`, alt="car")
+                        .popup__content--slider
+                            each image, i in images
+                                .popup__content--sliders
+                                    .numberText= `${i + 1} / ${images.length}` 
+                                    img.popup__content--img(src=`${image.src}`, alt="car")
                         .thumbnail
                             each image, i in images 
                                 .thumbnail__content(style=`width: ${Math.floor(100/images.length)}%;`)

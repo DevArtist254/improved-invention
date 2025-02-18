@@ -25,10 +25,11 @@ class Popup {
         if(n < 1) {this.#slideIndex = this.#slides.length }
 
         for(let i = 0; i < this.#slides.length; i++) {
-            this.#slides[i].style.display = "none";
+            this.#slides[i].style.width = "0";
         }
 
-        this.#slides[this.#slideIndex - 1].style.display = "block";
+        this.#slides[this.#slideIndex - 1].style.width = "100%";
+        this.#slides[this.#slideIndex - 1].style.transition = "width 500ms ease-in-out"
     }
 
     prevBtn() {
