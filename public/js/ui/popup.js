@@ -5,9 +5,9 @@ class Popup {
     #next = document?.getElementById("next");
     #tn = document?.querySelector(".thumbnail");
 
-    constructor() {
-        this.showSlides(this.#slideIndex);
-    }
+    // constructor() {
+    //     this.showSlides(this.#slideIndex);
+    // }
 
     currentSlide() {
         this.#tn.addEventListener("click", (e) => {

@@ -4,17 +4,21 @@ import results from "./ui/results";
 import popup from "./ui/popup";
 
 const map = document.getElementById("map");
+const popupSec = document.querySelector(".popup");
 
 const init = function () {
   search.handleAnimation();
   search.handleSearch();
-  if(map) {
+  if (map) {
     newlocation.displayMap();
   }
   results.windowAnimation();
-  popup.prevBtn();
-  popup.nextBtn();
-  popup.currentSlide();
+  if (popupSec !== null) {
+    popup.prevBtn();
+    popup.nextBtn();
+    popup.currentSlide();
+    popup.showSlides(1);
+  }
 };
 
 init();

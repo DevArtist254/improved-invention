@@ -52,9 +52,17 @@
 
 .thumbnail {
     @include flexRowCr();
-    height: 15vh;
 
     &__content {
         height: 100%;
     }
+}
+
+.thumbnail__content--img {
+    height: 15vh;
+}
+
+.thumbnail__content--img:hover {
+    opacity: 0.6;
+    cursor: pointer;
 }

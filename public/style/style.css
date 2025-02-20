@@ -272,10 +272,18 @@ img {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  height: 15vh;
 }
 .thumbnail__content {
   height: 100%;
+}
+
+.thumbnail__content--img {
+  height: 15vh;
+}
+
+.thumbnail__content--img:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 .container {
