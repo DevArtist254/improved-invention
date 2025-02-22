@@ -1,7 +1,7 @@
 {
   "name": "mji",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon server.js",
     "bulid:style": "sass -w public/style/sass/main.scss public/style/style.css",
@@ -12,16 +12,23 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongoose": "^8.9.4",
-    "pug": "^3.0.3"
+    "pug": "^3.0.3",
+    "validator": "^13.12.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.9",
     "sass": "^1.83.4",
     "webpack": "^5.97.1",
     "webpack-cli": "^6.0.1"
+  },
+  "type": "module",
+  "engines": {
+    "node": "><20.0.0"
   }
 }

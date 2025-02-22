@@ -1,14 +1,16 @@
-const express = require("express");
-const cors = require("cors");
+import express from "express";
+import cors from "cors";
 
 const app = express();
 
-const vehicleRoute = require("./routes/vehicles.route");
+// import vehicleRoute from "./routes/vehiclesRoute";
+import userRoute from "./routes/userRoute.js";
 
 app.use(cors());
 
 app.set("view engine", "pug");
 app.use(express.static("public"));
+app.use(express.json({ limit: '10kb' }));
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
@@ -145,9 +147,9 @@ app.get("/results", (req, res) => {
 });
 
 
-//
-app.use("/app/v1/vehicles", vehicleRoute);
+// app.use("/app/v1/vehicles", vehicleRoute);
+app.use("/app/v1/user", userRoute);
 
-module.exports = app;
+export default app;
 
 
