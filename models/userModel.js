@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import validator from "validator";
+import bcrypt from "bcryptjs";
 
 
 const userSchema = new mongoose.Schema({
@@ -21,7 +22,7 @@ const userSchema = new mongoose.Schema({
     },
     socials: [
         {
-            type: {
+            image: {
                 type: String,
                 enum: ["facebook", "instagram", "linkedin", "telegram", "tiktok", "whatsapp", "x", "youtube"],
                 default: "whatsapp"
@@ -29,57 +30,71 @@ const userSchema = new mongoose.Schema({
             link: String
         }
     ],
-    phoneNumber: {
+    phoneNumber: [{
         type: Number,
-        validate: [validator.isMobilePhone, "Please enter a valid phone number"],
+        validate: {
+            validator: function (value) {
+                return validator.isMobilePhone(value, "en-KE");
+            },
+            message:  "Please enter a valid kenya number"
+        },
+    }],
+    password: {
+        type: String,
+        required: [true, 'Please enter a password'],
+        select: false,
+        minlength: 8
     },
-    password: String
+    passwordChangedAt: Date,
+    passwordResetToken: String,
+    passwordResetExpires: Date,
+    location: [
+        {
+            type: {
+                type: String,
+                default: 'Point',
+                enum: ['Point']
+            },
+            coordinates: [Number],
+            address: String,
+            description: String,
+            primary: Boolean
+        }
+    ],
+    role: {
+        type: String,
+        enum: ['seller', 'buyer', 'user'],
+        default: 'seller'
+    },
+    active: {
+        type: Boolean,
+        default: true,
+        select: false
+    }
 })
+
+userSchema.pre('save', async function(next) {
+    if (!this.isModified('password')) return next();
+
+    this.password = await bcrypt.hash(this.password, 12);
+    
+    next();
+})
+
+userSchema.pre('save', function (next) {
+    //Only run if the document is not new 
+    if (!this.isModified('password') || this.isNew) return next();
+
+    this.passwordChangedAt = Date.now() - 1000;
+    next();
+})
+
+userSchema.methods.correctPassword = async function (candidatePass, userPass) {
+    return await bcrypt.compare(candidatePass, userPass);
+}
 
 
 const User = mongoose.model("User", userSchema);
 
 export default User;
 
-// {
-//     _id: "ObjectId",
-//     name: "Muthaka Motors",
-//     slogan: "trusted companion!",
-//     logo: "./images/aaron-huber/alexander-hipp.jpg",
-//     socials: [
-//       {
-//         image: "whatsapp",
-//         link: "http://www.youtube.com/watch?v=kUs-fH1k-aM&t=47s",
-//       },
-//       {
-//         image: "x",
-//         link: "http://www.youtube.com/watch?v=kUs-fH1k-aM&t=47s",
-//       },
-//       {
-//         image: "facebook",
-//         link: "http://www.youtube.com/watch?v=kUs-fH1k-aM&t=47s",
-//       },
-//       {
-//         image: "youtube",
-//         link: "http://www.youtube.com/watch?v=kUs-fH1k-aM&t=47s",
-//       },
-//     ],
-//     phone_number: [254795263459, 254795263459],
-//     location_address: [
-//       {
-//         _id: "5c88fa8cf4afda39709c2959",
-//         description: "Lummus Park Beach",
-//         type: "Point",
-//         coordinates: [-80.128473, 25.781842],
-//         day: 1,
-//       },
-//       {
-//         _id: "5c88fa8cf4afda39709c2958",
-//         description: "Islamorada",
-//         type: "Point",
-//         coordinates: [-80.647885, 24.909047],
-//         day: 2,
-//       },
-//     ],
-//     email_address: ["motors@gmail.com"],
-//   }
