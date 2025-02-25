@@ -37,13 +37,13 @@ export const login = catchAsync(async (req, res, next) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-        return next(new AppError("Please enter the required password or email", 400));
+        throw new AppError("Please enter the required password or email", 400);
     }
 
     const user = await User.findOne({ email }).select('+password');
 
     if (!user || !(await user.correctPassword(password, user.password))) {
-        return next(new AppError('Incorrect email or password', 401));
+        throw new AppError('Incorrect email or password', 401);
     }
 
     createSendToken(user, 200, res);

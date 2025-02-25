@@ -1,0 +1,20 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet")
+        link(rel="stylesheet", href="/style/style.css")
+        title= title
+    body 
+        include _nav
+
+        form(action="/app/v1/user/login", method="get") 
+            .login__email
+                label.login__email--label(for="email") email
+                input.login__email--input#loginEmail(type="email", name="email")
+            .login__password 
+                label.login__password--label(for="password") password
+                input.login__password--input#loginPassword(type="password", name="password")
+            input.login__submit(type="submit", value="login")

@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title #{title}
+    style.
+      body { font-family: Arial, sans-serif; background-color: #f8d7da; text-align: center; padding: 50px; }
+      .error-box { background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
+      h1 { color: #721c24; }
+      p { color: #721c24; font-size: 18px; }
+
+  body
+    .error-box
+      h1 Oops! An error occurred.
+      p Status Code: #{status}
+      p #{message}
+      a(href="/") Go back home
