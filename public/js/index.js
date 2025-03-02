@@ -6,6 +6,7 @@ import user from "./ui/user.js";
 
 const map = document.getElementById("map");
 const popupSec = document.querySelector(".popup");
+const loginForm = document.querySelector("#login");
 
 const init = function () {
   search.handleAnimation();
@@ -21,7 +22,7 @@ const init = function () {
     popup.showSlides(1);
   }
 
-  user.login();
+  if(loginForm) user.login();
 };
 
 init();

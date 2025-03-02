@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
@@ -13,6 +14,8 @@ app.use(cors());
 app.set("view engine", "pug");
 app.use(express.static("public"));
 app.use(express.json({ limit: '10kb' }));
+
+app.use(cookieParser());
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();

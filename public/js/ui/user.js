@@ -19,7 +19,7 @@ class User {
                 })
              })
 
-             if(!(res.status === "success")){
+             if(!(res.status === 200)){
                 console.log(res);
                 
                 throw new Error(`message=${res.statusText}&status=${res.status}`)
@@ -27,7 +27,9 @@ class User {
 
              const data = await res.json();
 
-             console.log(data);
+             document.cookie = `jwt=${data.token}`;
+             window.location.href = "/";
+
             } catch (error) {
                 console.error("Fecth error:", error);
 

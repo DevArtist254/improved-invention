@@ -1,10 +1,11 @@
+import { promisify } from 'util';
 import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
 import catchAsync from "../utils/catchAsync.js";
 import AppError from "../utils/appError.js";
 
 const signToken = id => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: process.env.EXPIRES_IN });
+    return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '1h'});
 }
 
 const createSendToken = (user, statusCode, res) => {
@@ -16,7 +17,7 @@ const createSendToken = (user, statusCode, res) => {
         httpOnly: true
     };
 
-    res.cookie('jwt', token, cookieOpt)
+    res.cookie('jwt', token)
 
     user.password = undefined;
 
@@ -47,4 +48,25 @@ export const login = catchAsync(async (req, res, next) => {
     }
 
     createSendToken(user, 200, res);
+})
+
+export const protect = catchAsync(async (req, res, next) => {
+    let token;
+    if (req.cookies.jwt) token = req.cookies.jwt;
+
+    //Throw a error if no token availa
+    if(!token) throw new AppError("Login to gain access", 401);
+
+    //check tokens vaildty
+    const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+
+    const currentUser = await User.findById(decoded.id);
+
+    if(!currentUser) {
+        throw new AppError('User does not exist', 401);
+    }
+
+    //Grant access
+    res.locals.user = currentUser;
+    next();
 })
