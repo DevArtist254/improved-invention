@@ -1,3 +1,6 @@
+import catchAsync from "./../utils/catchAsync.js";
+import AppError from "./../utils/appError.js";
+
 export const login = (req, res) => {
     res.render('login', {
         title: "login"
@@ -10,6 +13,20 @@ export const home = (req, res) => {
         message: "Hello world",
     });
 }
+
+export const errorPage = catchAsync(async (req, res) => {
+    const mes = req.query.message;
+    const sts = req.query.status;
+
+    console.log(mes, sts);
+    
+
+    res.render('error', {
+        title: "Something went wrong",
+        status: sts,
+        message: mes
+    })
+})
 
 export const results = (req, res) => {
     console.log(req.query);

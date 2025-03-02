@@ -1,6 +1,10 @@
-const path = require("path");
+import path from "path"
+import { fileURLToPath } from 'url';
 
-module.exports = {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const configr = {
   mode: "development",
   entry: "./public/js/index.js",
   output: {
@@ -9,3 +13,5 @@ module.exports = {
   },
   watch: true,
 };
+
+export default configr

@@ -1,7 +1,8 @@
-import search from "./ui/search";
-import newlocation from "./ui/map";
-import results from "./ui/results";
-import popup from "./ui/popup";
+import search from "./ui/search.js";
+import newlocation from "./ui/map.js";
+import results from "./ui/results.js";
+import popup from "./ui/popup.js";
+import user from "./ui/user.js";
 
 const map = document.getElementById("map");
 const popupSec = document.querySelector(".popup");
@@ -19,6 +20,8 @@ const init = function () {
     popup.currentSlide();
     popup.showSlides(1);
   }
+
+  user.login();
 };
 
 init();

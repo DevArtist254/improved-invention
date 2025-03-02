@@ -10,11 +10,13 @@ html(lang="en")
     body 
         include _nav
 
-        form(action="/app/v1/user/login", method="get") 
+        form#login
             .login__email
                 label.login__email--label(for="email") email
                 input.login__email--input#loginEmail(type="email", name="email")
             .login__password 
                 label.login__password--label(for="password") password
                 input.login__password--input#loginPassword(type="password", name="password")
-            input.login__submit(type="submit", value="login")
+            input.login__submit#loginBtn(type="submit", value="login")
+    
+    script(type="module", src="/dist/index.js")

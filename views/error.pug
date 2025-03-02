@@ -1,12 +1,12 @@
 doctype html
 html
   head
-    title #{title}
-    style.
-      body { font-family: Arial, sans-serif; background-color: #f8d7da; text-align: center; padding: 50px; }
-      .error-box { background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
-      h1 { color: #721c24; }
-      p { color: #721c24; font-size: 18px; }
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet")
+    link(rel="stylesheet", href="/style/style.css")
+    title #{title}: #{status}
 
   body
     .error-box
